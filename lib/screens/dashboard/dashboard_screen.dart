@@ -1,3 +1,4 @@
+import 'package:cgms/config/colors.dart';
 import 'package:flutter/material.dart';
 import '../jobs/job_list_screen.dart';
 import '../cv_tools/cv_manager_screen.dart';
@@ -17,15 +18,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final List<Widget> _pages = [
     const JobListScreen(),
     const CVManagerScreen(),
-    const ProfileScreen(),
     const SettingsScreen(),
+    const ProfileScreen(),
   ];
 
-  final List<BottomNavigationBarItem> _navItems = [
+  final List<BottomNavigationBarItem> _navItems = const [
     BottomNavigationBarItem(icon: Icon(Icons.work), label: "Jobs"),
     BottomNavigationBarItem(icon: Icon(Icons.description), label: "CV Tools"),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.add_chart_rounded), label: "Applications"),
     BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-    BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
   ];
 
   @override
@@ -40,8 +42,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             _currentIndex = index;
           });
         },
-        selectedItemColor: Colors.indigo,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: AppColors.primaryIconColor,
+        unselectedItemColor: AppColors.secondaryIconColor,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
       ),
